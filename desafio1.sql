@@ -3,13 +3,13 @@ DROP DATABASE IF EXISTS SpotifyClone;
 CREATE DATABASE SpotifyClone;
 
 CREATE TABLE SpotifyClone.plan(
-    plan_id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    plan_id INT AUTO_INCREMENT PRIMARY KEY,
     plan_name VARCHAR(100) NOT NULL,
     plan_value DOUBLE NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE SpotifyClone.users(
-    user_id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
     user_name VARCHAR(100) NOT NULL,
     age TINYINT NOT NULL,
     plan_start_date VARCHAR(100) NOT NULL,
@@ -18,12 +18,12 @@ CREATE TABLE SpotifyClone.users(
 ) engine = InnoDB;
 
 CREATE TABLE SpotifyClone.artist(
-    artist_id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    artist_id INT AUTO_INCREMENT PRIMARY KEY,
     artist_name VARCHAR(100) NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE SpotifyClone.album(
-    album_id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    album_id INT AUTO_INCREMENT PRIMARY KEY,
     album_name VARCHAR(100) NOT NULL,
     release_year INT NOT NULL,
     artist_id INT NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE SpotifyClone.album(
 ) engine = InnoDB;
 
 CREATE TABLE SpotifyClone.song(
-    song_id INT(40) AUTO_INCREMENT PRIMARY KEY,
+    song_id INT AUTO_INCREMENT PRIMARY KEY,
     song_name VARCHAR(100) NOT NULL,
     song_duration INT NOT NULL,
     album_id INT NOT NULL,
@@ -39,17 +39,17 @@ CREATE TABLE SpotifyClone.song(
 ) engine = InnoDB;
 
 CREATE TABLE SpotifyClone.listening_history(
-    listening_id INT(38) AUTO_INCREMENT PRIMARY KEY,
+    listening_id INT AUTO_INCREMENT,
     listening_date VARCHAR(100) NOT NULL,
-    user_id INT NOT NULL,
-    song_id INT NOT NULL,
-    CONSTRAINT PRIMARY KEY (user_id, song_id),
+    user_id INT,
+    song_id INT,
+    CONSTRAINT PRIMARY KEY (listening_id, user_id, song_id),
     FOREIGN KEY (user_id) REFERENCES users (user_id),
     FOREIGN KEY (song_id) REFERENCES song (song_id)
 ) engine = InnoDB;
 
 CREATE TABLE SpotifyClone.following_artist(
-    following_artist_id INT(22) AUTO_INCREMENT PRIMARY KEY,
+    following_artist_id INT AUTO_INCREMENT,
     user_id INT NOT NULL,
     artist_id INT NOT NULL,
     CONSTRAINT PRIMARY KEY (following_artist_id, user_id, artist_id),
@@ -142,7 +142,7 @@ VALUES
   (39, 'Baby', 136, 10),
   (40, 'You Make Me Feel So..', 83, 10);
   
-INSERT INTO listening_history (listening_id, listening_date, user_id, song_id)
+INSERT INTO SpotifyClone.listening_history (listening_id, listening_date, user_id, song_id)
 VALUES
 (1, '2020-02-28 10:45:55', 1, 36),
 (2, '2020-05-02 05:30:35', 1, 25),
@@ -183,7 +183,7 @@ VALUES
 (37, '2017-07-27 05:24:49', 10, 12),
 (38, '2017-12-25 01:03:57', 10, 13);
 
-INSERT INTO following_artist (following_artist_id, user_id, artist_id)
+INSERT INTO SpotifyClone.following_artist (following_artist_id, user_id, artist_id)
 VALUES
 (1, 1, 1),
 (2, 1, 2),
