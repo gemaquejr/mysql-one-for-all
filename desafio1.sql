@@ -5,7 +5,7 @@ CREATE DATABASE SpotifyClone;
 CREATE TABLE SpotifyClone.plan(
     plan_id INT AUTO_INCREMENT PRIMARY KEY,
     plan_name VARCHAR(100) NOT NULL,
-    plan_value DOUBLE NOT NULL
+    plan_value DECIMAL (3,2) NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE SpotifyClone.users(
@@ -59,7 +59,7 @@ CREATE TABLE SpotifyClone.following_artist(
 
 INSERT INTO SpotifyClone.plan (plan_id, plan_name, plan_value)
 VALUES
-  (1, 'gratuito', 0.00),
+  (1, 'gratuito', 0),
   (2, 'universitário', 5.99),
   (3, 'pessoal', 6.99),
   (4, 'familiar', 7.99);
