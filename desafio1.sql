@@ -93,10 +93,10 @@ VALUES
   (3, 'Hallowed Steam', 1995, 4),
   (4, 'Incandescent', 1998, 3),
   (5, 'Temporary Culture', 2001, 2),
-  (6, 'Library of Liberty', 2003, 2),
+  (6, 'Library of liberty', 2003, 2),
   (7, 'Chained Down', 2007, 5),
-  (8, 'Cabinet of Fools', 2012, 5),
-  (9, 'No Guarantees', 2015, 5),
+  (8, 'Cabinet of fools', 2012, 5),
+  (9, 'No guarantees', 2015, 5),
   (10, 'Apparatus', 2015, 6);
   
 INSERT INTO SpotifyClone.song (song_id, song_name, song_duration, album_id)
