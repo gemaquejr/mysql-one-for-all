@@ -1,6 +1,6 @@
 # MySql One For All
 
-Essa aplicação foi desenvolvida em MySQL.
+Essa aplicação foi inspirado no Banco de Dados do Spotify (SpotifyClone) e desenvolvida em MySQL.
 
 ![preview](.github/preview.gif)
 
